@@ -49,3 +49,9 @@ Support
 -------
 
 Please send tickets and issues to our contact email address
+
+
+Known Issues
+-------
+
+1) When a newer version of a plug in is available than the one currently installed eclipse some times this will generate an error from command line. We cache our plugins to make sure that this issue does not occur.
