@@ -3,10 +3,10 @@
 # This class installs the eclipse and all the plugins we use in our own internal deployments
 #
 # Parameters:
-#  - suppererrors: whether or not to supress errors when adding the plugin (Default: false)
+#  - suppresserrors: whether or not to supress errors when adding the plugin (Default: false)
 
 define eclipse::package::phpdelux (
-  $suppererrors=false,
+  $suppresserrors=false,
 ) {
 	
 	# install eclipse php
@@ -25,32 +25,32 @@ define eclipse::package::phpdelux (
 	# install collaboration plugins for ecplipse
   eclipse::plugin::collaboration{$collaborationname:
     pluginrepositories=>'http://download.eclipse.org/releases/indigo/',
-    suppererrors=>$suppererrors,
+    suppresserrors=>$suppresserrors,
     require=>eclipse[$eclipsename]
   }
 
 	# install geppetto plugins for ecplipse
 	eclipse::plugin::geppetto{$geppettoname:
-	  suppererrors=>$suppererrors,
+	  suppresserrors=>$suppresserrors,
 	  require=>eclipse[$eclipsename]
 	}
 	
 	# install pdt plugins for ecplipse
   eclipse::plugin::pdt{$pdtname:
     pluginrepositories=>'http://download.eclipse.org/releases/indigo/',
-    suppererrors=>$suppererrors,
+    suppresserrors=>$suppresserrors,
     require=>eclipse[$eclipsename]
   }
   
   # install json plugins for ecplipse
   eclipse::plugin::json{$jsonname:
-    suppererrors=>$suppererrors,
+    suppresserrors=>$suppresserrors,
     require=>eclipse[$eclipsename]
   }
   
   # install json plugins for ecplipse
   eclipse::plugin::aws{$jsonname:
-    suppererrors=>$suppererrors,
+    suppresserrors=>$suppresserrors,
     require=>eclipse[$eclipsename]
   }
 	

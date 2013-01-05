@@ -1,6 +1,6 @@
 eclipse
 
-This class installs eclipse and some useful components.
+This class installs eclipse, eclipse plug ins and allows for management of projects and workspaces via puppet.
 
 Here is an example of how use this code in our own manifests:
 
@@ -48,4 +48,4 @@ will.ferrer@runthebusiness.net
 Support
 -------
 
-Please log tickets and issues at our [pending]
+Please send tickets and issues to our contact email address
