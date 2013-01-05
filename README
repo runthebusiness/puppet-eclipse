@@ -1,0 +1,51 @@
+eclipse
+
+This class installs eclipse and some useful components.
+
+Here is an example of how use this code in our own manifests:
+
+	# install eclipse indigo and the plugins we use in our own deployments (working in debian squeeze)
+	eclipse::package::phpdelux{"eclipseplusplugins":}
+	
+	# Import project
+	eclipse::project::phpsvn{"eclipsephpandsvnproject":
+      projectname=>[project name],
+      workspacepath=>[path to workspace],
+      path=>[path to project folder],
+      group=>[group ownership of folder],
+      owner=>[user ownership of folder],
+      mode=>[file permissions of folder],
+      require=>Eclipse::Package::Phpdelux["eclipseplusplugins"]
+    }
+	    
+	# Fix any issues that happen with the workspace
+	eclipse::fixworkspace{"eclipsefixworkspace":
+	    workspacepath=>[path to work space],
+	    owner=>[user ownership of folder],
+	    group=>[group ownership of folder],
+	    mode=>[file permissions of folder],
+      	require=>Eclipse::Project::Phpsvn["eclipsephpandsvnproject"]
+ 	}
+		
+
+Authors
+-------
+Will Ferrer, Ethan Brooks
+
+Licensees
+-------
+2012 developed under license for Switchsoft LLC http://www.switchsoft.com a "Direct response telephony company" as part of it's "VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales" and Run the Business Systems LLC a "Technology development investment group" as part of it's "PHP, Javascript rapid application development framework and MySQL analysis tools"
+
+License
+-------
+Licensed under the terms of the Open Source LGPL 3.0 license.  
+
+
+Contact
+-------
+will.ferrer@runthebusiness.net
+
+Support
+-------
+
+Please log tickets and issues at our [pending]
