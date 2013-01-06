@@ -26,7 +26,12 @@ Here is an example of how use this code in our own manifests:
 	    mode=>[file permissions of folder],
       	require=>Eclipse::Project::Phpsvn["eclipsephpandsvnproject"]
  	}
-		
+
+See comment blocks of the code for further documentation.
+
+We are happy accept improvements to this project (bug reports/fixes, new built in plug in support, extended functionality, etc).
+
+This module has been tested in debian squeeze, if you use it in another flavor and it works or if you have improvements to the eclipse:params class to allow it to work in another flavor please let us know.
 
 Authors
 -------
