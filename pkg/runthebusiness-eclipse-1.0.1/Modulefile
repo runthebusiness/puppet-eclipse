@@ -1,4 +1,12 @@
-eclipse
+name 'runthebusiness-eclipse'
+version '1.0.1'
+
+author 'runthebusiness'
+license 'Apache License, Version 2.0'
+project_page 'UNKNOWN'
+source 'UNKNOWN'
+summary 'UNKNOWN'
+description 'eclipse
 
 This class installs eclipse, eclipse plug ins and allows for management of projects and workspaces via puppet.
 
@@ -39,7 +47,7 @@ Will Ferrer, Ethan Brooks
 
 Licensees
 -------
-2012 developed under license for Switchsoft LLC http://www.switchsoft.com a "Direct response telephony company" as part of it's "VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales" and Run the Business Systems LLC a "Technology development investment group" as part of it's "PHP, Javascript rapid application development framework and MySQL analysis tools"
+2012 developed under license for Switchsoft LLC http://www.switchsoft.com a "Direct response telephony company" as part of it\'s "VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales" and Run the Business Systems LLC a "Technology development investment group" as part of it\'s "PHP, Javascript rapid application development framework and MySQL analysis tools"
 
 License
 -------
@@ -53,7 +61,7 @@ will.ferrer@runthebusiness.net
 Support
 -------
 
-Please send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-eclipse/issues
+Please send tickets and issues to our contact email address
 
 Project Url
 -------
@@ -63,4 +71,4 @@ https://github.com/runthebusiness/puppet-eclipse
 Known Issues
 -------
 
-1) When a newer version of a plug in is available than the one currently installed eclipse some times this will generate an error from command line. We cache our plugins to make sure that this issue does not occur.
+1) When a newer version of a plug in is available than the one currently installed eclipse some times this will generate an error from command line. We cache our plugins to make sure that this issue does not occur.'

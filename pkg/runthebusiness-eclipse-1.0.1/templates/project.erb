@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+        <name><%= @projectname %></name>
+        <comment></comment>
+        <projects>
+        </projects>
+        <buildSpec>
+<% buildcommands.each do |val| -%>
+                <buildCommand>
+                        <name><%= val %></name>
+                        <arguments>
+                        </arguments>
+                </buildCommand>
+<% end -%>
+        </buildSpec>
+        <natures>
+<% natures.each do |val| -%>
+                <nature><%= val %></nature>
+<% end -%>
+        </natures>
+</projectDescription>

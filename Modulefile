@@ -61,7 +61,7 @@ will.ferrer@runthebusiness.net
 Support
 -------
 
-Please send tickets and issues to our contact email address
+Please send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-eclipse/issues
 
 Project Url
 -------
