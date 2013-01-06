@@ -6,7 +6,7 @@ Here is an example of how use this code in our own manifests:
 
 	# install eclipse indigo and the plugins we use in our own deployments (working in debian squeeze)
 	eclipse::package::phpdelux{"eclipseplusplugins":}
-	
+
 	# Import project
 	eclipse::project::phpsvn{"eclipsephpandsvnproject":
       projectname=>[project name],
@@ -17,7 +17,7 @@ Here is an example of how use this code in our own manifests:
       mode=>[file permissions of folder],
       require=>Eclipse::Package::Phpdelux["eclipseplusplugins"]
     }
-	    
+
 	# Fix any issues that happen with the workspace
 	eclipse::fixworkspace{"eclipsefixworkspace":
 	    workspacepath=>[path to work space],
@@ -29,9 +29,9 @@ Here is an example of how use this code in our own manifests:
 
 See comment blocks of the code for further documentation.
 
-We are happy accept improvements to this project (bug reports/fixes, new built in plug in support, extended functionality, etc).
+We are happy to accept improvements to this project (bug reports/fixes, new built in plug in support, extended functionality, etc).
 
-This module has been tested in debian squeeze, if you use it in another flavor and it works or if you have improvements to the eclipse:params class to allow it to work in another flavor please let us know.
+This module has been tested in debian squeeze, if you use it in another flavor and it works fine as is or if you have improvements to the eclipse::params class to allow it to work in your flavor please let us know.
 
 Authors
 -------
