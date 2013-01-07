@@ -3,7 +3,7 @@ version '1.0.1'
 
 author 'runthebusiness'
 license 'Apache License, Version 2.0'
-project_page 'UNKNOWN'
+project_page 'https://github.com/runthebusiness/puppet-eclipse'
 source 'UNKNOWN'
 summary 'UNKNOWN'
 description 'eclipse
