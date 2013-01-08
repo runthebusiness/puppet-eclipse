@@ -1,0 +1,1 @@
+<%= scope.lookupvar('eclipse::params::installpath') %>eclipse/eclipse -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import <%= @path %>  <% if rebuild == true %> -build all -cleanBuild all <% end %> -data <%= @workspacepath %>

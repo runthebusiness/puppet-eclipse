@@ -1,0 +1,39 @@
+{
+  "description": "eclipse\n\nThis class installs eclipse, eclipse plug ins and allows for management of projects and workspaces via puppet.\n\nHere is an example of how use this code in our own manifests:\n\n\t# install eclipse indigo and the plugins we use in our own deployments (working in debian squeeze)\n\teclipse::package::phpdelux{\"eclipseplusplugins\":}\n\n\t# Import project\n\teclipse::project::phpsvn{\"eclipsephpandsvnproject\":\n      projectname=>[project name],\n      workspacepath=>[path to workspace],\n      path=>[path to project folder],\n      group=>[group ownership of folder],\n      owner=>[user ownership of folder],\n      mode=>[file permissions of folder],\n      require=>Eclipse::Package::Phpdelux[\"eclipseplusplugins\"]\n    }\n\n\t# Fix any issues that happen with the workspace\n\teclipse::fixworkspace{\"eclipsefixworkspace\":\n\t    workspacepath=>[path to work space],\n\t    owner=>[user ownership of folder],\n\t    group=>[group ownership of folder],\n\t    mode=>[file permissions of folder],\n      \trequire=>Eclipse::Project::Phpsvn[\"eclipsephpandsvnproject\"]\n \t}\n\nSee comment blocks of the code for further documentation.\n\nWe are happy to accept improvements to this project (bug reports/fixes, new built in plug in support, extended functionality, etc).\n\nThis module has been tested in debian squeeze, if you use it in another flavor and it works fine as is or if you have improvements to the eclipse::params class to allow it to work in your flavor please let us know.\n\nAuthors\n-------\nWill Ferrer, Ethan Brooks\n\nLicensees\n-------\n2012 developed under license for Switchsoft LLC http://www.switchsoft.com a \"Direct response telephony company\" as part of it's \"VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales\" and Run the Business Systems LLC a \"Technology development investment group\" as part of it's \"PHP, Javascript rapid application development framework and MySQL analysis tools\"\n\nLicense\n-------\nLicensed under the terms of the Open Source LGPL 3.0 license.  \n\n\nContact\n-------\nwill.ferrer@runthebusiness.net\n\nSupport\n-------\n\nPlease send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-eclipse/issues\n\nProject Url\n-------\nhttps://github.com/runthebusiness/puppet-eclipse\n\n\nKnown Issues\n-------\n\n1) When a newer version of a plug in is available than the one currently installed eclipse some times this will generate an error from command line. We cache our plugins to make sure that this issue does not occur.",
+  "summary": "This class installs eclipse, eclipse plug ins and allows for management of projects and workspaces via puppet.",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "checksums": {
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "manifests/params.pp": "c01cd133e53bc4a0115d59509424327b",
+    "templates/addproject.erb": "bc32137327f49b5d30c0b41a68bf89c2",
+    "manifests/plugin/aws.pp": "9645a3bd842a9a381f6fa65733232b0c",
+    "templates/project.erb": "5bc24639e1f56832dd89abc5e63527d7",
+    "manifests/plugin/pdt.pp": "e6bb2fa7b50559b54a433e93e301ceba",
+    "manifests/project.pp": "5d108407893507d38481756b0478a0e9",
+    "manifests/fixworkspace.pp": "d93ec1c92a148b25e22b9ec1933b86ef",
+    "README": "378689025d65ecf915e50ab4d90902b1",
+    "templates/addplugins.erb": "ded28b8bea22bf8e20b4917d10b623d5",
+    "manifests/package/phpdelux.pp": "7439358257578046abd039ba70add866",
+    "manifests/project/phpsvn.pp": "44cf725c33bc0873c17e121a7dc33bbd",
+    "manifests/plugin/collaboration.pp": "8a0c6be07e2490b5ad9f3a1561022164",
+    "manifests/plugin/jsdt.pp": "3563c2f77bd5c0ab12756a3dc98defb2",
+    "tests/init.pp": "783de10372aa2648723df0d555617ba7",
+    "templates/eclipse.desktop.erb": "af70cfa26fd4dc25db8dc4adc04dad20",
+    "manifests/plugin.pp": "112db003516388c8f522794dfdf316a1",
+    "Modulefile": "6df8daed7fd94c516788c8f6e001b716",
+    "manifests/init.pp": "90d62acfe4a7a11d0e16aef28f550bd4",
+    "manifests/plugin/json.pp": "26f4b417f259c0e465cdf1253b3890f2",
+    "manifests/plugin/geppetto.pp": "2608df8c6bda84091645d8a13d1123fa"
+  },
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "author": "runthebusiness",
+  "name": "runthebusiness-eclipse",
+  "project_page": "https://github.com/runthebusiness/puppet-eclipse",
+  "version": "1.0.3"
+}
