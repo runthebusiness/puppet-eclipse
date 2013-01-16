@@ -1,0 +1,1 @@
+bash -c "if <% checkforpluginfolders.each do |val| -%> find <%=scope.lookupvar('eclipse::params::installpath') %>eclipse/plugins/ | grep <%= val %> && <% end -%> true; then echo 'Installed'; exit 0; else echo 'Not Installed'; exit 1; fi"
