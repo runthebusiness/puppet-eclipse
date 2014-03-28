@@ -3,7 +3,7 @@ version '1.0.4'
 
 author 'runthebusiness'
 license 'Apache License, Version 2.0'
-project_page 'https://github.com/runthebusiness/puppet-eclipse'
+project_page 'https://github.com/mtbvang/puppet-eclipse'
 source 'UNKNOWN'
 summary 'This class installs eclipse, eclipse plug ins and allows for management of projects and workspaces via puppet.'
 description 'eclipse
