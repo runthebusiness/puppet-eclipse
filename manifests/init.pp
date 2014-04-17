@@ -60,24 +60,8 @@ define eclipse(
 			timeout     => $wgettimeout,
 			#require=>file["installersdirectory"]
 		}
-	
-	} elsif $method == 'file' {
-    file {$wgetcreates:
-			owner => $owner,
-			group => $group,
-			mode => $mode,
-			source => $filesource;
-		}
-	} elsif $method == 'package' {
-		package {"eclipse":
-			name=>"eclipse",
-			ensure=>$method
-		}
-	}
-	
-	
-	if ($method == 'file') or ($method == 'wget') {
-    # Decompresses eclipse
+		
+		 # Decompresses eclipse
     exec {"upackeclipse":
       command=>$unpackcommand,
       cwd=> $eclipse::params::executefrom,
@@ -105,6 +89,35 @@ define eclipse(
       logoutput=> on_failure,
       require=>exec["modeclipse"]
     }
+	
+	} elsif $method == 'file' {
+    file {"eclipsefile":
+      path => $wgetcreates,
+			owner => $owner,
+			group => $group,
+			mode => $mode,
+			source => $filesource;
+		}
+		
+		 # Make a simlink in bin
+    exec {"simlinkeclipse":
+      command=>$simlinktobin,
+      cwd=> $eclipse::params::executefrom,
+      path=> $eclipse::params::execlaunchpaths,
+      creates=>$simlinkcreates,
+      logoutput=> on_failure,
+      require=>file["eclipsefile"]
+    }
+	} elsif $method == 'package' {
+		package {"eclipse":
+			name=>"eclipse",
+			ensure=>$method
+		}
+	}
+	
+	
+	if ($method == 'file') or ($method == 'wget') {
+   
     
     # Put the eclipse icon on the desktop
     file{"eclipse.desktop":
