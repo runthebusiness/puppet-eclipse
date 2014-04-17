@@ -1,5 +1,5 @@
 name 'runthebusiness-eclipse'
-version '1.0.4'
+version '1.1.0'
 
 author 'runthebusiness'
 license 'Apache License, Version 2.0'
@@ -44,6 +44,10 @@ This module has been tested in debian squeeze, if you use it in another flavor a
 Authors
 -------
 Will Ferrer, Ethan Brooks
+
+Contributing Authors
+-------
+Neil Grogan
 
 Licensees
 -------
