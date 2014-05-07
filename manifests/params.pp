@@ -30,6 +30,12 @@ class eclipse::params {
 				$desktopfilepath='/usr/share/applications/'
 				$simlinkto='/usr/bin/'
 	    }
+		'Archlinux': {
+				$downloadpath='/tmp/'
+				$installpath='/opt/'
+				$desktopfilepath='/usr/share/applications/'
+				$simlinkto='/usr/bin/'
+		}
 	    default: {
 		    #TODO: used the debian defaults -- verify in other flavors:
 				$downloadpath='/usr/src/'

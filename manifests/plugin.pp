@@ -18,7 +18,8 @@ define eclipse::plugin (
 	$pluginrepositories = ['http://download.eclipse.org/releases/juno/'],
 	$pluginius = [],
 	$suppresserrors=false,
-	$checkforpluginfolders=undef
+	$checkforpluginfolders=undef,
+	$timeout=900,
 ) {
 	include eclipse::params
 	$addpluginscmd = template("eclipse/addplugins.erb")
@@ -33,7 +34,7 @@ define eclipse::plugin (
 		command=>$addpluginscmd,
 		cwd=> $eclipse::params::executefrom,
 		path=> $eclipse::params::execlaunchpaths,
-		timeout => 900,
+		timeout => $timeout,
 		unless=>$unless,
 		logoutput=> on_failure,
 	}

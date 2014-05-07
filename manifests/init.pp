@@ -21,6 +21,7 @@ define eclipse(
 	$downloadurl='http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz&url=http://eclipse.mirrorcatalogs.com/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz&mirror_id=1119',
 	$downloadfile='eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz',
 	$pluginrepositories = ['http://download.eclipse.org/releases/juno/'],
+	$timeout=900,
 	$pluginius = []
 ) {
 	include eclipse::params
@@ -55,7 +56,7 @@ define eclipse(
 			path=> $eclipse::params::execlaunchpaths,
 			creates=>$finalcreates,
 			logoutput=> on_failure,
-			require=>exec["geteclipse"]
+			require=>Exec["geteclipse"]
 		}
 		
 		# Mod eclipse
@@ -64,7 +65,7 @@ define eclipse(
 			cwd=> $eclipse::params::executefrom,
 			path=> $eclipse::params::execlaunchpaths,
 			logoutput=> on_failure,
-			require=>exec["upackeclipse"]
+			require=>Exec["upackeclipse"]
 		}
 		
 		# Make a simlink in bin
@@ -74,7 +75,7 @@ define eclipse(
 			path=> $eclipse::params::execlaunchpaths,
 			creates=>$simlinkcreates,
 			logoutput=> on_failure,
-			require=>exec["modeclipse"]
+			require=>Exec["modeclipse"]
 		}
 		
 		# Put the eclipse icon on the desktop
@@ -93,6 +94,7 @@ define eclipse(
 	
 	if pluginius != undef {
 		::eclipse::plugin{"eclipseinstallplugins":
+			timeout=>$timeout,
 			pluginrepositories=>$pluginrepositories,
 			pluginius=>$pluginius
 		}
