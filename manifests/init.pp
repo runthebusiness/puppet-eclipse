@@ -21,6 +21,7 @@ define eclipse(
 	$downloadurl='http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz&url=http://eclipse.mirrorcatalogs.com/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz&mirror_id=1119',
 	$downloadfile='eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz',
 	$pluginrepositories = ['http://download.eclipse.org/releases/juno/'],
+	$timeout=900,
 	$pluginius = []
 ) {
 	include eclipse::params
@@ -93,6 +94,7 @@ define eclipse(
 	
 	if pluginius != undef {
 		::eclipse::plugin{"eclipseinstallplugins":
+			timeout=>$timeout,
 			pluginrepositories=>$pluginrepositories,
 			pluginius=>$pluginius
 		}
