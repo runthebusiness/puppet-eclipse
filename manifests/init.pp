@@ -55,7 +55,7 @@ define eclipse(
 			path=> $eclipse::params::execlaunchpaths,
 			creates=>$finalcreates,
 			logoutput=> on_failure,
-			require=>exec["geteclipse"]
+			require=>Exec["geteclipse"]
 		}
 		
 		# Mod eclipse
@@ -64,7 +64,7 @@ define eclipse(
 			cwd=> $eclipse::params::executefrom,
 			path=> $eclipse::params::execlaunchpaths,
 			logoutput=> on_failure,
-			require=>exec["upackeclipse"]
+			require=>Exec["upackeclipse"]
 		}
 		
 		# Make a simlink in bin
@@ -74,7 +74,7 @@ define eclipse(
 			path=> $eclipse::params::execlaunchpaths,
 			creates=>$simlinkcreates,
 			logoutput=> on_failure,
-			require=>exec["modeclipse"]
+			require=>Exec["modeclipse"]
 		}
 		
 		# Put the eclipse icon on the desktop
