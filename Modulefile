@@ -45,6 +45,10 @@ Authors
 -------
 Will Ferrer, Ethan Brooks
 
+Contributing Authors
+-------
+Vang Nguyen, Neil Grogan, Martin Schulze
+
 Licensees
 -------
 2012 developed under license for Switchsoft LLC http://www.switchsoft.com a "Direct response telephony company" as part of it\'s "VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales" and Run the Business Systems LLC a "Technology development investment group" as part of it\'s "PHP, Javascript rapid application development framework and MySQL analysis tools"
