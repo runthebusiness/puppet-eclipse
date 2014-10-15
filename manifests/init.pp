@@ -47,6 +47,7 @@ define eclipse(
 	$wgetcommand ="wget -O '${wgetcreates}' '${downloadurl}'"
 	$unpackcommand = "tar -C '${eclipse::params::installpath}' -zxvf '${wgetcreates}'"
 	$modeclipse = "chmod -R 775 '${finalcreates}'"
+	$modeclipseunless = "/usr/bin/test $(/usr/bin/stat -c %a $finalcreates) == 2775"
 	$simlinktobin = "ln -s '${applicationpath}' '${simlinkcreates}'"
     
 	if $method == 'wget' {
@@ -76,6 +77,7 @@ define eclipse(
 	      command=>$modeclipse,
 	      cwd=> $eclipse::params::executefrom,
 	      path=> $eclipse::params::execlaunchpaths,
+	      unless => $modeclipseunless,
 	      logoutput=> on_failure,
 	      require=>Exec["upackeclipse"]
 	    }
@@ -104,6 +106,7 @@ define eclipse(
 			command=>$modeclipse,
 			cwd=> $eclipse::params::executefrom,
 			path=> $eclipse::params::execlaunchpaths,
+	        unless => $modeclipseunless,
 			logoutput=> on_failure,
 			require=>Exec["upackeclipse"]
 		}
