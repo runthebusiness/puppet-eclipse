@@ -138,7 +138,7 @@ define eclipse(
 	    }
   	}
 	
-	if pluginius != undef {
+	if $pluginius != undef {
 		::eclipse::plugin{"eclipseinstallplugins":
 			timeout=>$timeout,
 			pluginrepositories=>$pluginrepositories,
