@@ -34,7 +34,7 @@ define eclipse(
 	$wgettimeout=1800,
 	$pluginrepositories = ['http://download.eclipse.org/releases/juno/'],
 	$timeout=900,
-	$pluginius = []
+	$pluginius = undef
 ) {
 	include eclipse::params
 	#creates tests for commandline execution
