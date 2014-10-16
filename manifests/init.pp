@@ -34,7 +34,7 @@ define eclipse(
 	$wgettimeout=1800,
 	$pluginrepositories = ['http://download.eclipse.org/releases/juno/'],
 	$timeout=900,
-	$pluginius = []
+	$pluginius = undef
 ) {
 	include eclipse::params
 	#creates tests for commandline execution
@@ -47,6 +47,7 @@ define eclipse(
 	$wgetcommand ="wget -O '${wgetcreates}' '${downloadurl}'"
 	$unpackcommand = "tar -C '${eclipse::params::installpath}' -zxvf '${wgetcreates}'"
 	$modeclipse = "chmod -R 775 '${finalcreates}'"
+	$modeclipseunless = "/usr/bin/test $(/usr/bin/stat -c %a $finalcreates) == 2775"
 	$simlinktobin = "ln -s '${applicationpath}' '${simlinkcreates}'"
     
 	if $method == 'wget' {
@@ -76,6 +77,7 @@ define eclipse(
 	      command=>$modeclipse,
 	      cwd=> $eclipse::params::executefrom,
 	      path=> $eclipse::params::execlaunchpaths,
+	      unless => $modeclipseunless,
 	      logoutput=> on_failure,
 	      require=>Exec["upackeclipse"]
 	    }
@@ -104,6 +106,7 @@ define eclipse(
 			command=>$modeclipse,
 			cwd=> $eclipse::params::executefrom,
 			path=> $eclipse::params::execlaunchpaths,
+	        unless => $modeclipseunless,
 			logoutput=> on_failure,
 			require=>Exec["upackeclipse"]
 		}
@@ -135,7 +138,7 @@ define eclipse(
 	    }
   	}
 	
-	if pluginius != undef {
+	if $pluginius != undef {
 		::eclipse::plugin{"eclipseinstallplugins":
 			timeout=>$timeout,
 			pluginrepositories=>$pluginrepositories,
