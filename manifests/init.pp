@@ -101,6 +101,14 @@ define eclipse(
 			source => $filesource;
 		}
 			
+		exec {"upackeclipse":
+		    command=>$unpackcommand,
+		    cwd=> $eclipse::params::executefrom,
+		    path=> $eclipse::params::execlaunchpaths,
+		    creates=>$finalcreates,
+		    logoutput=> on_failure,
+		    require=>File["eclipsefile"]
+		}
 		# Mod eclipse
 		exec {"modeclipse":
 			command=>$modeclipse,
